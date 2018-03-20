@@ -1060,7 +1060,7 @@ function pass(data) {
         if (res.length === 0 && data["message"]["text"] !== "***") {   //password
             bot.sendMessage({
                 chat_id: data["message"]["from"]["id"],
-                text: "شما کاربر تازه وارد هستید. \n" + " کد شناسایی معتبر خود را وارد کنید یا با @Hooo3eeeN تماس بگیرید."
+                text: "شما کاربر تازه وارد هستید. \n" + " کد شناسایی معتبر خود را وارد کنید"
             });
 
         }
@@ -1070,7 +1070,7 @@ function pass(data) {
     });
 }
 function checking_pass(data) {
-    if(data["message"]["text"] === "***"){
+    if(data["message"]["text"] === "***"){     //password
         var user = new UserModel({});
 
         bot.sendMessage({
@@ -1089,10 +1089,6 @@ function checking_pass(data) {
         });
     }
     else if(data["message"]["text"] !== "***" ){  //password
-        // bot.sendMessage({
-        //     chat_id : data["message"]["from"]["id"],
-        //     text:"کد شناسایی وارد شده معتبر نیست. مجددا تلاش کرده یا با @Hooo3eeen  تماس بگیرید."
-        // });
         var nosy =new NosyModel({});
         nosy.chat_id=data["message"]["from"]["id"];
         nosy.username = data["message"]["from"]["username"];
